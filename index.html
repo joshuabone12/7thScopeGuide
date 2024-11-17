@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Military Scope Guides</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://www.youtube.com/iframe_api"></script> <!-- Load YouTube API -->
+    </head>
+    <body>
+        <!-- YouTube Video Background -->
+        <div id="video-background-container">
+            <iframe id="backgroundVideo" 
+                    src="https://www.youtube.com/embed/u15CW7eQQyo?enablejsapi=1&autoplay=0&controls=0&loop=0&playlist=u15CW7eQQyo" 
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+    <!-- Page Header -->
+    <h1>7th Scope Guides</h1>
+    <p>Scope sight pictures & how to range with different munitions between factions.</p>
+
+    <!-- Navigation Buttons -->
+    <div class="navbar">
+        <button onclick="showTab('hat-guide')">Heavy Anti-Tank Guide</button>
+        <button onclick="showTab('scoped-rifles-guide')">Scoped Rifles Guide</button>
+        <button onclick="showTab('light-at-guide')">Light Anti-Tank Guide</button>
+        <button id="play-pause-button" onclick="togglePlayPause()">Play/Pause Video</button>
+    </div>
+
+  <!-- Volume Control Button -->
+  <div class="volume-control">
+    <button id="volumeButton" onclick="toggleVolume()">Volume: Low</button>
+</div>
+
+    <!-- Heavy Anti-Tank Guide Section -->
+    <div id="hat-guide" class="guide-section">
+        <h2>Heavy Anti-Tank Guide</h2>
+        <div class="thumbnail-container">
+            <div class="thumbnail-item">
+                <h2>US Army</h2>
+                <p>MAAWS<br>Zoom 2x</p>
+                <img src="images/scope1.png" class="thumbnail" id="scope1" onclick="openModal('scope1')">
+                <p>Range: 50m - 500m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>US Marines</h2>
+                <p>SMAW<br>Zoom 4x</p>
+                <img src="images/scope2.png" class="thumbnail" id="scope2" onclick="openModal('scope2')">
+                <p>Range: 100m - 500m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>RU Forces / VDV</h2>
+                <p>RPG-7V2, TANDEM<br>Zoom 3x</p>
+                <img src="images/scope3.png" class="thumbnail" id="scope3" onclick="openModal('scope3')">
+                <p>Range: 50m - 200m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>VDV / Turkish / MEA / IMF / Insurgents</h2>
+                <p>RPG-7<br>Zoom 1x</p>
+                <img src="images/scope4.png" class="thumbnail" id="scope4" onclick="openModal('scope4')">
+                <p>Range: 100m - 500m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>RU Forces</h2>
+                <p>RPG-28<br>Zoom 2x</p>
+                <img src="images/scope5.png" class="thumbnail" id="scope5" onclick="openModal('scope5')">
+                <p>Range: 100m - 500m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>PLA / PLA Marines</h2>
+                <p>PF98, HEAT / TANDEM<br>Zoom 5x</p>
+                <img src="images/scope6.png" class="thumbnail" id="scope6" onclick="openModal('scope6')">
+                <p>Range: 100m - 1000m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>MEA</h2>
+                <p>RPG-29<br>Zoom 3x</p>
+                <img src="images/scope7.png" class="thumbnail" id="scope7" onclick="openModal('scope7')">
+                <p>Range: 100m - 800m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>GB Forces</h2>
+                <p>NLAW<br>Zoom 2x</p>
+                <img src="images/scope8.png" class="thumbnail" id="scope8" onclick="openModal('scope8')">
+                <p>Range: 100m - 600m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>CA Forces</h2>
+                <p>Carl Gustav<br>Zoom 2x</p>
+                <img src="images/scope9.png" class="thumbnail" id="scope9" onclick="openModal('scope9')">
+                <p>Range: 100m - 1000m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>IMF / Insurgents</h2>
+                <p>RPG-29<br>Zoom 1x</p>
+                <img src="images/scope10.png" class="thumbnail" id="scope10" onclick="openModal('scope10')">
+                <p>Range: 100m - 400m<br>Adjustable</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scoped Rifles Guide Section -->
+    <div id="scoped-rifles-guide" class="guide-section" style="display: none;">
+        <h2>Scoped Rifles Guide</h2>
+        <div class="thumbnail-container">
+            <div class="thumbnail-item">
+                <h2>US Army / US Marines</h2>
+                <p>M150<br>Zoom 4x</p>
+                <img src="images/sscope1.png" class="thumbnail" id="sscope1" onclick="openModal('sscope1')">
+                <p>Range: 100m - 800m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>US Marines</h2>
+                <p>SDO<br>Zoom 4x</p>
+                <img src="images/sscope2.png" class="thumbnail" id="sscope2" onclick="openModal('sscope2')">
+                <p>Range: 200m - 1000m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>RU Forces / VDV</h2>
+                <p>1P78<br>Zoom 3x</p>
+                <img src="images/sscope3.png" class="thumbnail" id="sscope3" onclick="openModal('sscope3')">
+                <p>Range: 100m - 400m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>Turkish</h2>
+                <p>A940<br>Zoom 1x-4x</p>
+                <img src="images/sscope4.png" class="thumbnail" id="sscope4" onclick="openModal('sscope4')">
+                <p>Range: 200m - 1000m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>PLA / PLA Marines</h2>
+                <p>YMA600<br>Zoom 3x</p>
+                <img src="images/sscope5.png" class="thumbnail" id="sscope5" onclick="openModal('sscope5')">
+                <p>Range: 100m - 800m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>MEA</h2>
+                <p>ZF1<br>Zoom 4x</p>
+                <img src="images/sscope6.png" class="thumbnail" id="sscope6" onclick="openModal('sscope6')">
+                <p>Range: 100m - 600m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>AUS Forces</h2>
+                <p>SPECTER<br>Zoom 1x-4x</p>
+                <img src="images/sscope7.png" class="thumbnail" id="sscope7" onclick="openModal('sscope7')">
+                <p>Range: 100m - 1000m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>GB Forces</h2>
+                <p>SUSAT<br>Zoom 4x</p>
+                <img src="images/sscope8.png" class="thumbnail" id="sscope8" onclick="openModal('sscope8')">
+                <p>Range: 100m - 600m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>GB Forces</h2>
+                <p>LDS<br>Zoom 4x</p>
+                <img src="images/sscope9.png" class="thumbnail" id="sscope9" onclick="openModal('sscope9')">
+                <p>Range: 100m - 800m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>IMF</h2>
+                <p>3-20 Optic<br>Zoom 4x</p>
+                <img src="images/sscope10.png" class="thumbnail" id="sscope10" onclick="openModal('sscope10')">
+                <p>Range: 100m - 500m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>IMF / Insurgents</h2>
+                <p>PU Scope<br>Zoom 4x</p>
+                <img src="images/sscope11.png" class="thumbnail" id="sscope11" onclick="openModal('sscope11')">
+                <p>Range: 100m - 1000m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>CA Forces</h2>
+                <p>C7A2<br>Zoom 3x</p>
+                <img src="images/sscope12.png" class="thumbnail" id="sscope12" onclick="openModal('sscope12')">
+                <p>Range: 200m - 800m<br>Adjustable</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Light Anti-Tank Guide Section -->
+    <div id="light-at-guide" class="guide-section" style="display: none;">
+        <h2>Light Anti-Tank Guide</h2>
+        <div class="thumbnail-container">
+            <div class="thumbnail-item">
+                <h2>US Army / US Marines</h2>
+                <p>AT-4 CS<br>Zoom 1x</p>
+                <img src="images/latscope1.png" class="thumbnail" id="latscope1" onclick="openModal('latscope1')">
+                <p>Range: 100m - 500m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>US Army / US Marines / Turkish / AUS Forces / GB Forces / CA Forces</h2>
+                <p>M72A7 LAW<br>Zoom 1x</p>
+                <img src="images/latscope2.png" class="thumbnail" id="latscope2" onclick="openModal('latscope2')">
+                <p>Range: 100m - 400m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>RU Forces / VDV / Turkish / MEA</h2>
+                <p>RPG-7V2, HEAT<br>Zoom 3x</p>
+                <img src="images/latscope3.png" class="thumbnail" id="latscope3" onclick="openModal('latscope3')">
+                <p>Range: 50m - 500m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>VDV / Turkish / MEA / IMF / Insurgents</h2>
+                <p>RPG-7<br>Zoom 1x</p>
+                <img src="images/latscope4.png" class="thumbnail" id="latscope4" onclick="openModal('latscope4')">
+                <p>Range: 100m - 500m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>RU Forces / MEA</h2>
+                <p>RPG-26<br>Zoom 1x</p>
+                <img src="images/latscope5.png" class="thumbnail" id="latscope5" onclick="openModal('latscope5')">
+                <p>Range: 50m - 250m<br>Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>PLA / PLA Marines</h2>
+                <p>DZJ08<br>Zoom 1x</p>
+                <img src="images/latscope6.png" class="thumbnail" id="latscope6" onclick="openModal('latscope6')">
+                <p>Range: 50m - 300m<br>Not Adjustable</p>
+            </div>
+            <div class="thumbnail-item">
+                <h2>IMF</h2>
+                <p>FN FAL HEAT<br>Zoom 1x</p>
+                <img src="images/latscope7.png" class="thumbnail" id="latscope7" onclick="openModal('latscope7')">
+                <p>Range: 40m - 80m<br>Adjustable</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Large Scope Image -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+            <img id="largeScope" src="">
+            <div id="magnifier" class="magnifying-box"></div>
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
