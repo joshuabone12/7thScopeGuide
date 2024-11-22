@@ -21,8 +21,8 @@ function openModal(scopeId) {
     largeScopeImg.addEventListener('mousemove', moveMagnifier);
     largeScopeImg.addEventListener('mouseleave', hideMagnifier);
 
-    // Reset the magnifier position and set to default
-    setDefaultMagnifierPosition();
+    // Reset the magnifier visibility and position
+    hideMagnifier();
 }
 
 // Function to close the modal
@@ -55,39 +55,14 @@ function moveMagnifier(event) {
         return;
     }
 
-    // Set the magnifier to follow the mouse cursor without being affected by scrolling
-    magnifier.style.left = `${event.pageX + 20}px`;  // Position it relative to cursor
-    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
+    // Set the magnifier to follow the mouse cursor
+    magnifier.style.left = `${x + rect.left + 20}px`;  // Position it relative to the image
+    magnifier.style.top = `${y + rect.top - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
 
     // Position the zoomed background inside the magnifier
     const zoomLevel = 3;  // Set the zoom level
     const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
     const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
-    magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
-    magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
-    magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
-}
-
-// Function to set the default magnifier position when modal opens
-function setDefaultMagnifierPosition() {
-    const magnifier = document.getElementById('magnifier');
-    const largeScopeImg = document.getElementById('largeScope');
-
-    // Get the image's dimensions
-    const rect = largeScopeImg.getBoundingClientRect();
-
-    // Set the default position of the magnifier to be slightly right of the center of the image
-    const defaultX = rect.width / 2 + rect.left + 20;  // Right of the center
-    const defaultY = rect.top + rect.height / 2 - magnifier.offsetHeight / 2;  // Vertically centered
-
-    magnifier.style.left = `${defaultX}px`;
-    magnifier.style.top = `${defaultY}px`;
-    magnifier.style.display = 'block';
-
-    // Set the zoomed background position and size inside the magnifier
-    const zoomLevel = 3;  // Set the zoom level
-    const backgroundX = -(rect.width / 2 * zoomLevel - magnifier.offsetWidth / 2);
-    const backgroundY = -(rect.height / 2 * zoomLevel - magnifier.offsetHeight / 2);
     magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
     magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
     magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
