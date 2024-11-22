@@ -10,22 +10,36 @@ function showTab(tabId) {
 // Function to open modal with large scope image
 function openModal(scopeId) {
     const largeScopeImg = document.getElementById('largeScope');
-    
+    const modal = document.getElementById('modal');
+
     // Set the source of the large image
     largeScopeImg.src = 'images/' + scopeId + '.png';
 
-    // Remove any previous event listeners to ensure we have a fresh setup
-    largeScopeImg.removeEventListener('mousemove', moveMagnifier);
-    largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
-    
-    // Wait for the image to load before showing the modal and adding event listeners
+    // Wait for the image to load before displaying the modal
     largeScopeImg.onload = function () {
-        document.getElementById('modal').style.display = 'flex';
+        modal.style.display = 'flex';
 
-        // Set up the magnifying effect only after the image has loaded
+        // Set up the magnifying effect
         largeScopeImg.addEventListener('mousemove', moveMagnifier);
         largeScopeImg.addEventListener('mouseleave', hideMagnifier);
     };
+
+    // Ensure previous event listeners are cleared
+    largeScopeImg.removeEventListener('mousemove', moveMagnifier);
+    largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
+
+    // Show the modal container
+    modal.style.display = 'flex';
+}
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+
+    const largeScopeImg = document.getElementById('largeScope');
+    largeScopeImg.removeEventListener('mousemove', moveMagnifier);
+    largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
+    hideMagnifier(); // Ensure the magnifier disappears
 }
 function moveMagnifier(event) {
     const magnifier = document.getElementById('magnifier');
