@@ -56,8 +56,8 @@ function moveMagnifier(event) {
     }
 
     // Position the magnifier box relative to the cursor, adjusting for scrolling
-    magnifier.style.left = `${event.clientX + window.scrollX + 20}px`;  // Offset from cursor, considering horizontal scroll
-    magnifier.style.top = `${event.clientY + window.scrollY - magnifier.offsetHeight / 2}px`;  // Vertically center around the cursor, considering vertical scroll
+    magnifier.style.left = `${event.pageX + 20}px`;  // Offset from cursor, considering horizontal scroll
+    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center around the cursor
 
     // Position the zoomed background inside the magnifier
     const zoomLevel = 3; // Set the zoom level
@@ -97,4 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach click event to modal to close it
     document.getElementById('modal').addEventListener('click', closeModal);
+
+    // Add a scroll event listener to hide the magnifier when scrolling
+    window.addEventListener('scroll', function () {
+        hideMagnifier();
+    });
 });
