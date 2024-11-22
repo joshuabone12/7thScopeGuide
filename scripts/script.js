@@ -22,7 +22,7 @@ function openModal(scopeId) {
     largeScopeImg.addEventListener('mouseleave', hideMagnifier);
 
     // Reset the magnifier visibility and position
-    hideMagnifier();
+    resetMagnifier();
 }
 
 // Function to close the modal
@@ -68,6 +68,26 @@ function moveMagnifier(event) {
     magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
 }
 
+// Function to reset the magnifier to the middle of the scope image
+function resetMagnifier() {
+    const magnifier = document.getElementById('magnifier');
+    const largeScopeImg = document.getElementById('largeScope');
+    const rect = largeScopeImg.getBoundingClientRect();
+
+    // Set the magnifier to the center of the image
+    magnifier.style.display = 'block';
+    magnifier.style.left = `${rect.left + rect.width / 2 - magnifier.offsetWidth / 2}px`;
+    magnifier.style.top = `${rect.top + rect.height / 2 - magnifier.offsetHeight / 2}px`;
+
+    // Set the zoomed background centered
+    const zoomLevel = 3; // Set the zoom level
+    const backgroundX = -(rect.width / 2 * zoomLevel - magnifier.offsetWidth / 2);
+    const backgroundY = -(rect.height / 2 * zoomLevel - magnifier.offsetHeight / 2);
+    magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
+    magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
+    magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+}
+
 // Function to hide the magnifier
 function hideMagnifier() {
     const magnifier = document.getElementById('magnifier');
@@ -97,4 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach click event to modal to close it
     document.getElementById('modal').addEventListener('click', closeModal);
+
+    // Attach scroll event to reset the magnifier position
+    window.addEventListener('scroll', resetMagnifier);
 });
