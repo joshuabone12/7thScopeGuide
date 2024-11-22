@@ -9,27 +9,19 @@ function showTab(tabId) {
 
 // Function to open modal with large scope image
 function openModal(scopeId) {
+    // Set up the large image source
     const largeScopeImg = document.getElementById('largeScope');
-    const modal = document.getElementById('modal');
-
-    // Set the source of the large image
     largeScopeImg.src = 'images/' + scopeId + '.png';
 
-    // Wait for the image to load before displaying the modal
-    largeScopeImg.onload = function () {
-        modal.style.display = 'flex';
-
-        // Set up the magnifying effect
-        largeScopeImg.addEventListener('mousemove', moveMagnifier);
-        largeScopeImg.addEventListener('mouseleave', hideMagnifier);
-    };
-
-    // Ensure previous event listeners are cleared
-    largeScopeImg.removeEventListener('mousemove', moveMagnifier);
-    largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
-
-    // Show the modal container
+    // Make sure the modal is visible
+    const modal = document.getElementById('modal');
     modal.style.display = 'flex';
+
+    // Attach event listeners for the magnifier effect
+    largeScopeImg.addEventListener('mousemove', moveMagnifier);
+    largeScopeImg.addEventListener('mouseleave', hideMagnifier);
+
+    console.log(`Modal opened for scope: ${scopeId}`);  // Debug: Show which scope was clicked
 }
 
 function closeModal() {
@@ -39,8 +31,11 @@ function closeModal() {
     const largeScopeImg = document.getElementById('largeScope');
     largeScopeImg.removeEventListener('mousemove', moveMagnifier);
     largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
-    hideMagnifier(); // Ensure the magnifier disappears
+    hideMagnifier();  // Ensure the magnifier disappears
+
+    console.log(`Modal closed.`);  // Debug: Modal closed
 }
+
 function moveMagnifier(event) {
     const magnifier = document.getElementById('magnifier');
     const largeScopeImg = document.getElementById('largeScope');
@@ -59,27 +54,37 @@ function moveMagnifier(event) {
         return;
     }
 
-    // Position the magnifier box near the cursor
-    magnifier.style.left = `${event.pageX + 15}px`; // Slight offset from the cursor
-    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`; // Center the magnifier vertically around the cursor
+    // Position the magnifier box next to the cursor
+    magnifier.style.left = `${event.pageX + 15}px`;  // Slight offset from the cursor
+    magnifier.style.top = `${event.pageY - 75}px`;  // Center vertically around the cursor
 
     // Position the zoomed background inside the magnifier
-    const zoomLevel = 3; // Set the zoom level
+    const zoomLevel = 3;  // Set the zoom level
     const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
     const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
     magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
     magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
     magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+
+    console.log(`Magnifier moved at x: ${x}, y: ${y}`);  // Debug: Track cursor position
 }
 
-    // Position the zoomed background inside the magnifier
-    const zoomLevel = 3; // Set the zoom level
-    const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
-    const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
-    magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
-    magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
-    magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+function hideMagnifier() {
+    const magnifier = document.getElementById('magnifier');
+    magnifier.style.display = 'none';
 }
+
+// Ensure click events are working as expected
+document.addEventListener('DOMContentLoaded', function () {
+    // Add event listeners to each thumbnail image
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function () {
+            openModal(thumbnail.id);
+        });
+    });
+    console.log('Thumbnail click events attached.');  // Debug: Confirm event listeners are attached
+});
 
 
 function hideMagnifier() {
