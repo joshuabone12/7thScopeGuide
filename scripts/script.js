@@ -20,10 +20,9 @@ function openModal(scopeId) {
     // Attach event listeners for the magnifier effect
     largeScopeImg.addEventListener('mousemove', moveMagnifier);
     largeScopeImg.addEventListener('mouseleave', hideMagnifier);
-
-    console.log(`Modal opened for scope: ${scopeId}`);  // Debug: Show which scope was clicked
 }
 
+// Function to close the modal
 function closeModal() {
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
@@ -31,11 +30,10 @@ function closeModal() {
     const largeScopeImg = document.getElementById('largeScope');
     largeScopeImg.removeEventListener('mousemove', moveMagnifier);
     largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
-    hideMagnifier();  // Ensure the magnifier disappears
-
-    console.log(`Modal closed.`);  // Debug: Modal closed
+    hideMagnifier(); // Ensure the magnifier disappears
 }
 
+// Function to move the magnifier
 function moveMagnifier(event) {
     const magnifier = document.getElementById('magnifier');
     const largeScopeImg = document.getElementById('largeScope');
@@ -54,21 +52,20 @@ function moveMagnifier(event) {
         return;
     }
 
-    // Position the magnifier box next to the cursor
-    magnifier.style.left = `${event.pageX + 15}px`;  // Slight offset from the cursor
-    magnifier.style.top = `${event.pageY - 75}px`;  // Center vertically around the cursor
+    // Correctly position the magnifier box next to the cursor
+    magnifier.style.left = `${event.pageX + 20}px`;  // Slight offset from the cursor to the right
+    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
 
     // Position the zoomed background inside the magnifier
-    const zoomLevel = 3;  // Set the zoom level
+    const zoomLevel = 3; // Set the zoom level
     const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
     const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
     magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
     magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
     magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
-
-    console.log(`Magnifier moved at x: ${x}, y: ${y}`);  // Debug: Track cursor position
 }
 
+// Function to hide the magnifier
 function hideMagnifier() {
     const magnifier = document.getElementById('magnifier');
     magnifier.style.display = 'none';
@@ -83,15 +80,18 @@ document.addEventListener('DOMContentLoaded', function () {
             openModal(thumbnail.id);
         });
     });
-    console.log('Thumbnail click events attached.');  // Debug: Confirm event listeners are attached
 
-    // Add event listeners to the buttons for tab switching
-    document.getElementById('hat-guide-btn').addEventListener('click', () => showTab('hat-guide'));
-    document.getElementById('scoped-rifles-guide-btn').addEventListener('click', () => showTab('scoped-rifles-guide'));
-    document.getElementById('light-at-guide-btn').addEventListener('click', () => showTab('light-at-guide'));
+    // Add event listeners to navigation buttons
+    document.getElementById('hat-guide-btn').addEventListener('click', function () {
+        showTab('hat-guide');
+    });
+    document.getElementById('scoped-rifles-guide-btn').addEventListener('click', function () {
+        showTab('scoped-rifles-guide');
+    });
+    document.getElementById('light-at-guide-btn').addEventListener('click', function () {
+        showTab('light-at-guide');
+    });
 
-    // Attach event listener for closing modal when clicking outside of the image
+    // Attach click event to modal to close it
     document.getElementById('modal').addEventListener('click', closeModal);
-
-    console.log('Tab switching events attached.');  // Debug: Confirm button event listeners are attached
 });
