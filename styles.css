@@ -23,6 +23,7 @@ body {
     background-color: #1f1f1f;
     padding: 10px;
     gap: 20px;
+    z-index: 100; /* Ensure navbar is always clickable */
 }
 
 .navbar button {
@@ -73,6 +74,7 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     width: 200px;
     text-align: center;
+    z-index: 100; /* Ensure thumbnails are always clickable */
 }
 
 .thumbnail-item h2 {
@@ -107,7 +109,7 @@ p {
     overflow: hidden;
     pointer-events: none;
     background-repeat: no-repeat;
-    z-index: 20;
+    z-index: 200; /* Magnifier should have higher priority when visible */
 }
 
 /* Modal */
@@ -121,7 +123,7 @@ p {
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 150; /* Ensure modal appears above other elements */
 }
 
 .modal-content img {
