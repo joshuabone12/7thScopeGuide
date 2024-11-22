@@ -56,16 +56,22 @@ function moveMagnifier(event) {
     }
 
     // Position the magnifier box relative to the cursor
-    magnifier.style.left = `${event.pageX + 20}px`;  // Slight offset from the cursor to the right
-    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
+    const pageXOffset = window.pageXOffset;
+    const pageYOffset = window.pageYOffset;
+
+    magnifier.style.left = `${event.pageX + 15 + pageXOffset}px`; // Slight offset from the cursor to the right
+    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2 + pageYOffset}px`; // Vertically center with the cursor
 
     // Position the zoomed background inside the magnifier
-    const zoomLevel = 3;  // Set the zoom level
+    const zoomLevel = 3; // Set the zoom level
     const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
     const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
     magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
     magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
     magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+
+    // Debugging Information
+    console.log(`Magnifier moved at x: ${x}, y: ${y}, backgroundX: ${backgroundX}, backgroundY: ${backgroundY}`);
 }
 
 // Function to hide the magnifier
