@@ -44,7 +44,7 @@ function moveMagnifier(event) {
     // Show the magnifier
     magnifier.style.display = 'block';
 
-    // Get the image's dimensions and cursor position
+    // Get the image's dimensions and cursor position considering the scrolling position
     const rect = largeScopeImg.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
@@ -55,7 +55,7 @@ function moveMagnifier(event) {
         return;
     }
 
-    // Position the magnifier box next to the cursor
+    // Position the magnifier box next to the cursor, adjusted for scroll position
     magnifier.style.left = `${event.pageX + 20}px`;  // Slight offset from the cursor to the right
     magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
 
