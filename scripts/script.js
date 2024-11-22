@@ -44,7 +44,7 @@ function moveMagnifier(event) {
     // Show the magnifier
     magnifier.style.display = 'block';
 
-    // Get the image's dimensions and cursor position relative to the image
+    // Get the image's dimensions and the cursor's position relative to the image
     const rect = largeScopeImg.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
@@ -55,12 +55,12 @@ function moveMagnifier(event) {
         return;
     }
 
-    // Set the magnifier to follow the mouse cursor
-    magnifier.style.left = `${event.pageX + 20}px`;  // Position it relative to the page
-    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
+    // Calculate the exact position of the magnifier relative to the mouse cursor
+    magnifier.style.left = `${event.clientX + 20}px`; // Offset from the cursor
+    magnifier.style.top = `${event.clientY - magnifier.offsetHeight / 2}px`; // Center vertically around the cursor
 
     // Position the zoomed background inside the magnifier
-    const zoomLevel = 3;  // Set the zoom level
+    const zoomLevel = 3; // Set the zoom level
     const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
     const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
     magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
