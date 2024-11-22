@@ -13,9 +13,9 @@
 
         <!-- Navigation Buttons -->
         <div class="navbar">
-            <button onclick="showTab('hat-guide')">Heavy Anti-Tank Guide</button>
-            <button onclick="showTab('scoped-rifles-guide')">Scoped Rifles Guide</button>
-            <button onclick="showTab('light-at-guide')">Light Anti-Tank Guide</button>
+            <button id="hat-guide-btn">Heavy Anti-Tank Guide</button>
+            <button id="scoped-rifles-guide-btn">Scoped Rifles Guide</button>
+            <button id="light-at-guide-btn">Light Anti-Tank Guide</button>
         </div>
 
         <!-- Heavy Anti-Tank Guide Section -->
@@ -214,7 +214,7 @@
         </div>
 
         <!-- Modal for Large Scope Image -->
-        <div id="modal" class="modal" onclick="closeModal()">
+        <div id="modal" class="modal">
             <div class="modal-content">
                 <img id="largeScope" src="">
                 <div id="magnifier" class="magnifying-box"></div>
