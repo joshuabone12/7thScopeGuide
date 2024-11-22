@@ -44,20 +44,22 @@ function moveMagnifier(event) {
     // Show the magnifier
     magnifier.style.display = 'block';
 
-    // Get the image's dimensions and cursor position relative to the document
+    // Set magnifier to fixed position on the screen
+    magnifier.style.position = 'fixed';
+    magnifier.style.left = '50%';  // Center horizontally
+    magnifier.style.top = '50%';   // Center vertically
+    magnifier.style.transform = 'translate(-50%, -50%)'; // Adjust for perfect centering
+
+    // Get the image's dimensions and cursor position considering the image boundaries
     const rect = largeScopeImg.getBoundingClientRect();
-    const x = event.pageX - window.scrollX - rect.left;
-    const y = event.pageY - window.scrollY - rect.top;
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
 
     // Prevent the magnifier from going out of bounds
     if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
         hideMagnifier();
         return;
     }
-
-    // Position the magnifier box relative to the cursor
-    magnifier.style.left = `${event.pageX + 15}px`;  // Slight offset from the cursor to the right
-    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
 
     // Position the zoomed background inside the magnifier
     const zoomLevel = 3;  // Set the zoom level
