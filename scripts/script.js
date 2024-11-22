@@ -84,4 +84,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     console.log('Thumbnail click events attached.');  // Debug: Confirm event listeners are attached
+
+    // Add event listeners to the buttons for tab switching
+    document.getElementById('hat-guide-btn').addEventListener('click', () => showTab('hat-guide'));
+    document.getElementById('scoped-rifles-guide-btn').addEventListener('click', () => showTab('scoped-rifles-guide'));
+    document.getElementById('light-at-guide-btn').addEventListener('click', () => showTab('light-at-guide'));
+
+    console.log('Tab switching events attached.');  // Debug: Confirm button event listeners are attached
 });
