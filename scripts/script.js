@@ -55,7 +55,7 @@ function moveMagnifier(event) {
         return;
     }
 
-    // Position the magnifier box next to the cursor, adjusted for scroll position
+    // Position the magnifier box relative to the cursor
     magnifier.style.left = `${event.pageX + 20}px`;  // Slight offset from the cursor to the right
     magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
 
