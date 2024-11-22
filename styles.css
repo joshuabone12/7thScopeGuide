@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 20px;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto; /* Allow vertical scrolling */
 }
 
 /* Guides Container */
