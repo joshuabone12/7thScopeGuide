@@ -44,13 +44,7 @@ function moveMagnifier(event) {
     // Show the magnifier
     magnifier.style.display = 'block';
 
-    // Set magnifier to fixed position on the screen
-    magnifier.style.position = 'fixed';
-    magnifier.style.left = '50%';  // Center horizontally
-    magnifier.style.top = '50%';   // Center vertically
-    magnifier.style.transform = 'translate(-50%, -50%)'; // Adjust for perfect centering
-
-    // Get the image's dimensions and cursor position considering the image boundaries
+    // Get the image's dimensions and cursor position relative to the image
     const rect = largeScopeImg.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
@@ -60,6 +54,13 @@ function moveMagnifier(event) {
         hideMagnifier();
         return;
     }
+
+    // Set the magnifier to follow the mouse cursor without being affected by scrolling
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    magnifier.style.left = `${event.clientX + scrollLeft + 20}px`;  // Position it relative to viewport + scroll offset
+    magnifier.style.top = `${event.clientY + scrollTop - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
 
     // Position the zoomed background inside the magnifier
     const zoomLevel = 3;  // Set the zoom level
