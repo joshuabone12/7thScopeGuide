@@ -21,8 +21,8 @@ function openModal(scopeId) {
     largeScopeImg.addEventListener('mousemove', moveMagnifier);
     largeScopeImg.addEventListener('mouseleave', hideMagnifier);
 
-    // Reset the magnifier visibility and position
-    resetMagnifier();
+    // Ensure the magnifier starts hidden until user moves the mouse
+    hideMagnifier();
 }
 
 // Function to close the modal
@@ -41,7 +41,7 @@ function moveMagnifier(event) {
     const magnifier = document.getElementById('magnifier');
     const largeScopeImg = document.getElementById('largeScope');
 
-    // Show the magnifier
+    // Show the magnifier only when the mouse moves
     magnifier.style.display = 'block';
 
     // Get the image's dimensions and the cursor's position relative to the image
@@ -75,10 +75,13 @@ function resetMagnifier() {
     const largeScopeImg = document.getElementById('largeScope');
     const rect = largeScopeImg.getBoundingClientRect();
 
-    // Set the magnifier to the center of the image
-    magnifier.style.display = 'block';
-    magnifier.style.left = `${rect.left + rect.width / 2 - magnifier.offsetWidth / 2}px`;
-    magnifier.style.top = `${rect.top + rect.height / 2 - magnifier.offsetHeight / 2}px`;
+    // Hide the magnifier until the user moves the mouse again
+    hideMagnifier();
+
+    // Set the magnifier to the center of the image when needed (commented out, as we don't want it to appear until user moves the mouse)
+    // magnifier.style.display = 'block';
+    // magnifier.style.left = `${rect.left + rect.width / 2 - magnifier.offsetWidth / 2}px`;
+    // magnifier.style.top = `${rect.top + rect.height / 2 - magnifier.offsetHeight / 2}px`;
 
     // Set the zoomed background centered
     const zoomLevel = 3; // Set the zoom level
