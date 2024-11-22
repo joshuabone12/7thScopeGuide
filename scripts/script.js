@@ -90,5 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('scoped-rifles-guide-btn').addEventListener('click', () => showTab('scoped-rifles-guide'));
     document.getElementById('light-at-guide-btn').addEventListener('click', () => showTab('light-at-guide'));
 
+    // Attach event listener for closing modal when clicking outside of the image
+    document.getElementById('modal').addEventListener('click', closeModal);
+
     console.log('Tab switching events attached.');  // Debug: Confirm button event listeners are attached
 });
