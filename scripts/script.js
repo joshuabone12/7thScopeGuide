@@ -20,6 +20,9 @@ function openModal(scopeId) {
     // Attach event listeners for the magnifier effect
     largeScopeImg.addEventListener('mousemove', moveMagnifier);
     largeScopeImg.addEventListener('mouseleave', hideMagnifier);
+
+    // Reset the magnifier position and visibility
+    hideMagnifier();
 }
 
 // Function to close the modal
@@ -52,12 +55,12 @@ function moveMagnifier(event) {
         return;
     }
 
-    // Correctly position the magnifier box next to the cursor
+    // Position the magnifier box next to the cursor
     magnifier.style.left = `${event.pageX + 20}px`;  // Slight offset from the cursor to the right
     magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;  // Vertically center with the cursor
 
     // Position the zoomed background inside the magnifier
-    const zoomLevel = 3; // Set the zoom level
+    const zoomLevel = 3;  // Set the zoom level
     const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
     const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
     magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
