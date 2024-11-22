@@ -33,7 +33,14 @@ function closeModal() {
     const largeScopeImg = document.getElementById('largeScope');
     largeScopeImg.removeEventListener('mousemove', moveMagnifier);
     largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
-    hideMagnifier(); // Ensure the magnifier disappears
+    hideMagnifier();
+
+    // Reset magnifier CSS
+    const magnifier = document.getElementById('magnifier');
+    magnifier.style.backgroundImage = '';
+    magnifier.style.backgroundPosition = '';
+    magnifier.style.left = '0px';
+    magnifier.style.top = '0px';
 }
 let lastMoveTime = 0;
 
