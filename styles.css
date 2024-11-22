@@ -10,24 +10,6 @@ body {
     overflow: hidden;
 }
 
-/* Background Video Styling */
-#video-background-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    opacity: 0.2;  /* Adjust the opacity to control how visible the video is in the background */
-    transition: opacity 0.5s ease-in-out;
-}
-
-#backgroundVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 /* Guides Container */
 .guides-container {
     position: relative;
