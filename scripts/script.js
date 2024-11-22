@@ -47,9 +47,9 @@ function moveMagnifier(event) {
         return;
     }
 
-    // Position the magnifier box next to the cursor with a consistent offset
-    magnifier.style.left = `${event.pageX + 15}px`; // Adjust the offset as needed
-    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`; // Center vertically around the cursor
+    // Position the magnifier box next to the cursor
+    magnifier.style.left = `${event.pageX + 10}px`; // Horizontal offset of 10px from cursor
+    magnifier.style.top = `${event.pageY + 10}px`; // Vertical offset of 10px from cursor
 
     // Position the zoomed background inside the magnifier
     const zoomLevel = 3; // Set the zoom level
@@ -59,6 +59,7 @@ function moveMagnifier(event) {
     magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
     magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
 }
+
 
 function hideMagnifier() {
     const magnifier = document.getElementById('magnifier');
