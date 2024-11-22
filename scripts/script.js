@@ -85,9 +85,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     console.log('Thumbnail click events attached.');  // Debug: Confirm event listeners are attached
 });
-
-
-function hideMagnifier() {
-    const magnifier = document.getElementById('magnifier');
-    magnifier.style.display = 'none';
-}
