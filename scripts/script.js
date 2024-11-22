@@ -44,34 +44,31 @@ function moveMagnifier(event) {
     // Show the magnifier
     magnifier.style.display = 'block';
 
-    // Get the image's dimensions and cursor position considering the scrolling position
+    // Get the image's dimensions and cursor position
     const rect = largeScopeImg.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    const offsetX = event.pageX - rect.left - window.pageXOffset;
+    const offsetY = event.pageY - rect.top - window.pageYOffset;
 
     // Prevent the magnifier from going out of bounds
-    if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+    if (offsetX < 0 || offsetY < 0 || offsetX > rect.width || offsetY > rect.height) {
         hideMagnifier();
         return;
     }
 
     // Position the magnifier box relative to the cursor
-    const pageXOffset = window.pageXOffset;
-    const pageYOffset = window.pageYOffset;
-
-    magnifier.style.left = `${event.pageX + 15 + pageXOffset}px`; // Slight offset from the cursor to the right
-    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2 + pageYOffset}px`; // Vertically center with the cursor
+    magnifier.style.left = `${event.pageX + 15}px`;
+    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;
 
     // Position the zoomed background inside the magnifier
     const zoomLevel = 3; // Set the zoom level
-    const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
-    const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
+    const backgroundX = -(offsetX * zoomLevel - magnifier.offsetWidth / 2);
+    const backgroundY = -(offsetY * zoomLevel - magnifier.offsetHeight / 2);
     magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
     magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
     magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
 
     // Debugging Information
-    console.log(`Magnifier moved at x: ${x}, y: ${y}, backgroundX: ${backgroundX}, backgroundY: ${backgroundY}`);
+    console.log(`Magnifier moved at offsetX: ${offsetX}, offsetY: ${offsetY}, backgroundX: ${backgroundX}, backgroundY: ${backgroundY}`);
 }
 
 // Function to hide the magnifier
