@@ -33,64 +33,39 @@ function closeModal() {
     const largeScopeImg = document.getElementById('largeScope');
     largeScopeImg.removeEventListener('mousemove', moveMagnifier);
     largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
-    hideMagnifier();
-
-    // Reset magnifier CSS
-    const magnifier = document.getElementById('magnifier');
-    magnifier.style.backgroundImage = '';
-    magnifier.style.backgroundPosition = '';
-    magnifier.style.left = '0px';
-    magnifier.style.top = '0px';
+    hideMagnifier(); // Ensure the magnifier disappears
 }
-let lastMoveTime = 0;
 
 // Function to move the magnifier
 function moveMagnifier(event) {
-     const now = Date.now();
-    if (now - lastMoveTime < 30) return; // 30ms throttle
-    lastMoveTime = now;
     const magnifier = document.getElementById('magnifier');
     const largeScopeImg = document.getElementById('largeScope');
 
+    // Show the magnifier
     magnifier.style.display = 'block';
 
+    // Get the image's dimensions and cursor position considering scrolling
     const rect = largeScopeImg.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
+    // Prevent the magnifier from going out of bounds
     if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
         hideMagnifier();
         return;
     }
 
-    const pageOffsetX = window.pageXOffset;
-    const pageOffsetY = window.pageYOffset;
+    // Position the magnifier box relative to the cursor, adjusting for scrolling
+    magnifier.style.left = `${event.clientX + window.scrollX + 20}px`;  // Offset from cursor, considering horizontal scroll
+    magnifier.style.top = `${event.clientY + window.scrollY - magnifier.offsetHeight / 2}px`;  // Vertically center around the cursor, considering vertical scroll
 
-    magnifier.style.left = `${event.clientX + 15 + pageOffsetX}px`;
-    magnifier.style.top = `${event.clientY - magnifier.offsetHeight / 2 + pageOffsetY}px`;
-
-    const zoomLevel = 3;
+    // Position the zoomed background inside the magnifier
+    const zoomLevel = 3; // Set the zoom level
     const backgroundX = -(x * zoomLevel - magnifier.offsetWidth / 2);
     const backgroundY = -(y * zoomLevel - magnifier.offsetHeight / 2);
     magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
     magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
     magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
-}
-
-    // Position the magnifier box relative to the cursor
-    magnifier.style.left = `${event.pageX + 15}px`;
-    magnifier.style.top = `${event.pageY - magnifier.offsetHeight / 2}px`;
-
-    // Position the zoomed background inside the magnifier
-    const zoomLevel = 3; // Set the zoom level
-    const backgroundX = -(offsetX * zoomLevel - magnifier.offsetWidth / 2);
-    const backgroundY = -(offsetY * zoomLevel - magnifier.offsetHeight / 2);
-    magnifier.style.backgroundImage = `url(${largeScopeImg.src})`;
-    magnifier.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
-    magnifier.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
-
-    // Debugging Information
-    console.log(`Magnifier moved at offsetX: ${offsetX}, offsetY: ${offsetY}, backgroundX: ${backgroundX}, backgroundY: ${backgroundY}`);
 }
 
 // Function to hide the magnifier
