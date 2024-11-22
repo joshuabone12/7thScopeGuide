@@ -10,12 +10,18 @@ function showTab(tabId) {
 // Function to open modal with large scope image
 function openModal(scopeId) {
     const largeScopeImg = document.getElementById('largeScope');
+    
+    // Set the source of the large image
     largeScopeImg.src = 'images/' + scopeId + '.png';
-    document.getElementById('modal').style.display = 'flex';
 
-    // Set up the magnifying effect
-    largeScopeImg.addEventListener('mousemove', moveMagnifier);
-    largeScopeImg.addEventListener('mouseleave', hideMagnifier);
+    // Wait for the image to load before showing the modal and adding event listeners
+    largeScopeImg.onload = function () {
+        document.getElementById('modal').style.display = 'flex';
+
+        // Set up the magnifying effect only after the image has loaded
+        largeScopeImg.addEventListener('mousemove', moveMagnifier);
+        largeScopeImg.addEventListener('mouseleave', hideMagnifier);
+    };
 }
 
 function closeModal() {
