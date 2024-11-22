@@ -56,6 +56,7 @@ function moveMagnifier(event) {
     }
 
     // Calculate the exact position of the magnifier relative to the mouse cursor
+    magnifier.style.position = 'fixed'; // Change position to fixed
     magnifier.style.left = `${event.clientX + 20}px`; // Offset from the cursor
     magnifier.style.top = `${event.clientY - magnifier.offsetHeight / 2}px`; // Center vertically around the cursor
 
