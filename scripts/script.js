@@ -35,9 +35,13 @@ function closeModal() {
     largeScopeImg.removeEventListener('mouseleave', hideMagnifier);
     hideMagnifier(); // Ensure the magnifier disappears
 }
+let lastMoveTime = 0;
 
 // Function to move the magnifier
 function moveMagnifier(event) {
+     const now = Date.now();
+    if (now - lastMoveTime < 30) return; // 30ms throttle
+    lastMoveTime = now;
     const magnifier = document.getElementById('magnifier');
     const largeScopeImg = document.getElementById('largeScope');
 
