@@ -14,14 +14,15 @@ body {
 body::before {
     content: "";
     background-image: url('images/7thlogo.png');
-    background-size: cover;
+    background-size: 70%; /* Reduce the size of the logo to 70% of the container */
+    background-repeat: no-repeat;
     background-position: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.05; /* Set low opacity to keep it subtle */
+    opacity: 0.1; /* Slightly increase opacity for better visibility */
     z-index: -1; /* Ensure it stays behind all content */
 }
 
