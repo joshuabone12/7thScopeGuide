@@ -215,72 +215,97 @@
                 </div>
             </div>
         </div>
-           <!-- MBT Guide Section -->
-        <div id="mbt-guide" class="guide-section" style="display: none;">
-            <h2>MBT Guide</h2>
-            <div class="thumbnail-container">
-                <div class="thumbnail-item">
-                    <h2>US Army</h2>
-                    <p>M1A2</p>
-                    <p>Combat Stats & Ammo Capacity for M1A2:</p>
-                    <p>21 APFSDS, 21 HEAT | 6 second reload time | 11 second Turret Rotate</p>
-                    <p>Commander - 12.7mm, 400 rounds</p>
-                    <p>M1A1 Abrams (Same as M1A2)</p>
-                </div>
-                <div class="thumbnail-item">
-                    <h2>CA Forces</h2>
-                    <p>Leopard 2A6M</p>
-                    <p>Combat Stats & Ammo Capacity for LEO - 2:</p>
-                    <p>21 APFSDS, 21 HEAT | 7.5 second Reload Time | 9 second Turret Rotate</p>
-                </div>
-                <div class="thumbnail-item">
-                    <h2>RGF, MEA, VDV</h2>
-                    <p>T-72</p>
-                    <p>Combat Stats & Ammo Capacity for T-72B3:</p>
-                    <p>20 APFSDS, 10 HEAT, 9 FRAG, 2 ATGM | 8.3 second reload time | 12 second turret rotate speed</p>
-                    <p>Commander - 12.7mm, 150x2</p>
-                    <p>NOTE: SPRUT MGS has same sighting</p>
-                    <p>Combat Stats & Ammo Capacity for Sprut:</p>
-                    <p>14 APFSDS (800mm Pen), 6 HEAT (500mm Pen), 14 FRAG, 2 ATGM (500mm Pen)</p>
-                </div>
-                <div class="thumbnail-item">
-                    <h2>BAF (British Armed Forces)</h2>
-                    <p>FV4034 (Challenger)</p>
-                    <p>Combat Stats & Ammo Capacity for FV4034:</p>
-                    <p>24 APFSDS, 16 HESH, 6 SMOKE | 8 Second Reload | 7 second Turret Rotate</p>
-                </div>
-                <div class="thumbnail-item">
-                    <h2>INS, IMF, MEA</h2>
-                    <p>T-62</p>
-                    <p>Combat Stats & Ammo Capacity for T-62:</p>
-                    <p>12 APFSDS, 8 HEAT, 20 FRAG | 9 second Reload | 18 second Turret Rotate</p>
-                </div>
-                <div class="thumbnail-item">
-                    <h2>PLA, PLAMC</h2>
-                    <p>ZTZ99A</p>
-                    <p>Combat Stats & Ammo Capacity for ZTZ-99A:</p>
-                    <p>15 APFSDS, 12 HEAT-FS, 12 HE, 4 ATGM | 8 second Reload | 12 second Turret Rotate</p>
-                    <p>Commander - 12.7mm, 450 rounds</p>
-                    <p>NOTE: Optics for ZTZ-99A & ZTD-05 are the same</p>
-                    <p>Combat Stats & Ammo Capacity for ZTD-05:</p>
-                    <p>12 APS, 8 HEAT, 20 FRAG | 9 second Reload | 17.5 second Turret Rotate</p>
-                </div>
-                <div class="thumbnail-item">
-                    <h2>US Army</h2>
-                    <p>M1128</p>
-                    <p>Combat Stats & Ammo Capacity for M1128 MGS:</p>
-                    <p>6 APFSDS, 10 HEAT, 2000 COAX | 6~ second Reload | 15 second Turret Rotate</p>
-                    <p>Command seat and 4th spot suicide seat 50. cal</p>
-                </div>
-                <div class="thumbnail-item">
-                    <h2>Turkish</h2>
-                    <p>M60T</p>
-                    <p>Combat Stats & Ammo Capacity for M60T:</p>
-                    <p>21 APFSDS, 20 HE, 2 ATGM | 8 second Reload | 13 second Turret Rotate</p>
-                    <p>Commander - M85 HMG, 400 rounds</p>
-                </div>
-            </div>
+        
+        <!-- MBT Guide Section -->
+<div id="mbt-guide" class="guide-section" style="display: none;">
+    <h2>MBT Guide</h2>
+    <div class="thumbnail-container">
+        <div class="thumbnail-item">
+            <h2>US Army</h2>
+            <p>M1A2</p>
+            <img src="images/tankscope1.png" class="thumbnail" id="tankscope1" onclick="openModal('tankscope1')">
+            <p class="combat-stats">
+                Combat Stats & Ammo Capacity for M1A2:<br><br>
+                21 APFSDS, 21 HEAT | 6 second reload time | 11 second Turret Rotate<br><br>
+                Commander - 12.7mm, 400 rounds<br><br>
+                M1A1 Abrams (Same as M1A2)
+            </p>
         </div>
+        <div class="thumbnail-item">
+            <h2>CA Forces</h2>
+            <p>Leopard 2A6M</p>
+            <img src="images/tankscope2.png" class="thumbnail" id="tankscope2" onclick="openModal('tankscope2')">
+            <p class="combat-stats">
+                Combat Stats & Ammo Capacity for Leopard 2A6M:<br><br>
+                21 APFSDS, 21 HEAT | 7.5 second reload time | 9 second Turret Rotate
+            </p>
+        </div>
+        <div class="thumbnail-item">
+            <h2>RGF, MEA, VDV</h2>
+            <p>T-72</p>
+            <img src="images/tankscope3.png" class="thumbnail" id="tankscope3" onclick="openModal('tankscope3')">
+            <p class="combat-stats">
+                Combat Stats & Ammo Capacity for T-72B3:<br><br>
+                20 APFSDS, 10 HEAT, 9 FRAG, 2 ATGM | 8.3 second reload time | 12 second turret rotate speed<br><br>
+                Commander - 12.7mm, 150x2<br><br>
+                NOTE: SPRUT MGS has same sighting<br><br>
+                Combat Stats & Ammo Capacity for Sprut:<br><br>
+                14 APFSDS (800mm Pen), 6 HEAT (500mm Pen), 14 FRAG, 2 ATGM (500mm Pen)
+            </p>
+        </div>
+        <div class="thumbnail-item">
+            <h2>BAF (British Armed Forces)</h2>
+            <p>FV4034 (Challenger)</p>
+            <img src="images/tankscope4.png" class="thumbnail" id="tankscope4" onclick="openModal('tankscope4')">
+            <p class="combat-stats">
+                Combat Stats & Ammo Capacity for FV4034 (Challenger):<br><br>
+                24 APFSDS, 16 HESH, 6 SMOKE | 8 second reload | 7 second turret rotate
+            </p>
+        </div>
+        <div class="thumbnail-item">
+            <h2>INS, IMF, MEA</h2>
+            <p>T-62</p>
+            <img src="images/tankscope5.png" class="thumbnail" id="tankscope5" onclick="openModal('tankscope5')">
+            <p class="combat-stats">
+                Combat Stats & Ammo Capacity for T-62:<br><br>
+                12 APFSDS, 8 HEAT, 20 FRAG | 9 second reload | 18 second turret rotate
+            </p>
+        </div>
+        <div class="thumbnail-item">
+            <h2>PLA, PLAMC</h2>
+            <p>ZTZ99A</p>
+            <img src="images/tankscope6.png" class="thumbnail" id="tankscope6" onclick="openModal('tankscope6')">
+            <p class="combat-stats">
+                Combat Stats & Ammo Capacity for ZTZ99A:<br><br>
+                15 APFSDS, 12 HEAT-FS, 12 HE, 4 ATGM | 8 second reload | 12 second turret rotate<br><br>
+                Commander - 12.7mm, 450 rounds<br><br>
+                NOTE: Optics for ZTZ-99A & ZTD-05 are the same<br><br>
+                Combat Stats & Ammo Capacity for ZTD-05:<br><br>
+                12 APS, 8 HEAT, 20 FRAG | 9 second reload | 17.5 second turret rotate
+            </p>
+        </div>
+        <div class="thumbnail-item">
+            <h2>US Army</h2>
+            <p>M1128</p>
+            <img src="images/tankscope7.png" class="thumbnail" id="tankscope7" onclick="openModal('tankscope7')">
+            <p class="combat-stats">
+                Combat Stats & Ammo Capacity for M1128 MGS:<br><br>
+                6 APFSDS, 10 HEAT, 2000 COAX | ~6 second reload | 15 second turret rotate<br><br>
+                Command seat and 4th spot suicide seat 50 cal
+            </p>
+        </div>
+        <div class="thumbnail-item">
+            <h2>Turkish</h2>
+            <p>M60T</p>
+            <img src="images/tankscope8.png" class="thumbnail" id="tankscope8" onclick="openModal('tankscope8')">
+            <p class="combat-stats">
+                Combat Stats & Ammo Capacity for M60T:<br><br>
+                21 APFSDS, 20 HE, 2 ATGM | 8 second reload | 13 second turret rotate<br><br>
+                Commander - M85 HMG, 400 rounds
+            </p>
+        </div>
+    </div>
+</div>
 
         <!-- IFV Guide Section -->
         <div id="ifv-guide" class="guide-section" style="display: none;">
