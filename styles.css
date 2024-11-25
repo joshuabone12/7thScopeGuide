@@ -8,6 +8,12 @@ body {
     padding: 20px;
     position: relative;
     overflow-y: auto; /* Allow vertical scrolling */
+    
+    /* Add a semi-transparent background image */
+    background-image: url('images/7thlogo.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1; /* Set opacity to make the logo subtle */
 }
 
 /* Guides Container */
