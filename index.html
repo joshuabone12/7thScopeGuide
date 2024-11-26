@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7th Scope Guides</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>7th Scope Guides</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
         <!-- Page Header -->
         <h1>7th Scope Guides</h1>
         <p>Scope sight pictures & how to range with different munitions between factions.</p>
@@ -28,7 +28,7 @@
                 <div class="thumbnail-item">
                     <h2>US Army</h2>
                     <p>MAAWS<br>Zoom 2x</p>
-                    <img src="/images/scope1.png" class="thumbnail" id="scope1" onclick="openModal('scope1')">
+                    <img src="./images/scope1.png" class="thumbnail" id="scope1" onclick="openModal('scope1')">
                     <p>Range: 50m - 500m<br>Not Adjustable</p>
                 </div>
                 <div class="thumbnail-item">
@@ -285,7 +285,7 @@
     </div>
 </div>
 
-   <!-- IFV Guide Section -->
+        <!-- IFV Guide Section -->
 <div id="ifv-guide" class="guide-section" style="display: none;">
     <h2>IFV Guide</h2>
     <div class="thumbnail-container">
@@ -311,17 +311,11 @@
             <h2>BAF</h2>
             <p>FV107</p>
             <img src="images/ifvscope3.png" class="thumbnail" id="ifvscope3" onclick="openModal('ifvscope3')">
-            <p class="combat-stats">
-                Description goes here for the FV107 scope.
-            </p>
         </div>
         <div class="thumbnail-item">
             <h2>BAF</h2>
             <p>FV510</p>
             <img src="images/ifvscope4.png" class="thumbnail" id="ifvscope4" onclick="openModal('ifvscope4')">
-            <p class="combat-stats">
-                Description goes here for the FV510 scope.
-            </p>
         </div>
         <div class="thumbnail-item">
             <h2>CAF</h2>
@@ -363,28 +357,22 @@
             <h2>PLA</h2>
             <p>ZBL-08 (HJ73C)</p>
             <img src="images/ifvscope9.png" class="thumbnail" id="ifvscope9" onclick="openModal('ifvscope9')">
-            <p class="combat-stats">
-                Description goes here for ZBL-08.
-            </p>
         </div>
         <div class="thumbnail-item">
             <h2>PLA</h2>
             <p>ZBD-04</p>
             <img src="images/ifvscope10.png" class="thumbnail" id="ifvscope10" onclick="openModal('ifvscope10')">
-            <p class="combat-stats">
-                Description goes here for ZBD-04.
-            </p>
         </div>
     </div>
 </div>
 
-
-      <div id="modal" class="modal">
-        <div class="modal-content">
-            <img id="largeScope" src="">
-            <div id="magnifier" class="magnifying-box"></div>
+        <!-- Modal for Large Scope Image -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <img id="largeScope" src="">
+                <div id="magnifier" class="magnifying-box"></div>
+            </div>
         </div>
-    </div>>
 
         <script src="./scripts/script.js"></script>
     </body>
