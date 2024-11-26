@@ -79,37 +79,33 @@ p {
 /* Thumbnail Container */
 .thumbnail-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjust to fit all items properly */
-    gap: 20px; /* Increase gap for better spacing */
+    grid-template-columns: repeat(5, auto);
+    gap: 15px;
     margin-top: 20px;
     justify-content: center;
 }
 
-/* Thumbnail Item */
 .thumbnail-item {
     background-color: #222;
-    padding: 15px; /* Increased padding for better text spacing */
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 250px; /* Consistent width */
-    text-align: left; /* Align text to the left */
-    height: auto; /* Adjust to fit text content */
+    width: 200px;
+    text-align: center;
+    height: 420px; /* Set a fixed height to ensure all items are the same size */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space out title, image, and other text */
 }
 
-/* Heading and Text within Thumbnail Item */
 .thumbnail-item h2 {
     font-size: 1.2em;
-    margin: 10px 0;
+    margin: 10px 0 5px;
 }
 
 .thumbnail-item p {
     font-size: 0.9em;
-    margin: 10px 0; /* Increase margin between paragraphs for readability */
-    line-height: 1.5; /* Improve readability */
-    word-wrap: break-word; /* Wrap text to ensure it doesn't overflow */
+    margin: 5px 0;
 }
 
 .thumbnail {
@@ -153,11 +149,9 @@ p {
     z-index: 150; /* Ensure modal appears above other elements */
 }
 
-/* Modal Content */
 .modal-content img {
     width: 600px;
     max-width: 100%;
     cursor: crosshair;
-    height: auto;
+    height: auto; /* Ensure proper height scaling */
 }
-
