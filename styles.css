@@ -149,9 +149,13 @@ p {
     z-index: 150; /* Ensure modal appears above other elements */
 }
 
+/* Modal Content */
 .modal-content img {
-    width: 600px;
-    max-width: 100%;
+    width: auto;
+    max-width: 90vw; /* Sets a max width relative to the viewport width */
+    height: auto;
+    max-height: 90vh; /* Sets a max height relative to the viewport height */
+    object-fit: contain; /* Ensures the image is not stretched but still fills the space */
     cursor: crosshair;
-    height: auto; /* Ensure proper height scaling */
 }
+
