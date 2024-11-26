@@ -93,10 +93,10 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     width: 200px;
     text-align: center;
-    height: 420px; /* Ensure all items have the same height */
+    height: 450px; /* Set a fixed height to ensure all items are the same size */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Space out title, image, and other text */
 }
 .thumbnail img {
     width: 100%;
@@ -108,8 +108,11 @@ p {
 .thumbnail-item h2 {
     font-size: 1.2em;
     margin: 10px 0 5px;
+    height: 40px; /* Set fixed height for consistent alignment */
+    display: flex;
+    align-items: center; /* Center-align the text vertically */
+    justify-content: center;
 }
-
 .thumbnail-item p {
     font-size: 0.9em;
     margin: 5px 0;
@@ -117,9 +120,9 @@ p {
 
 .thumbnail {
     width: 100%;
-    height: auto;
-    border-radius: 4px;
+    height: 150px; /* Set fixed height to align all images */
     object-fit: contain; /* Keep the image contained without stretching */
+    border-radius: 4px;
     cursor: pointer;
     transition: transform 0.2s;
 }
