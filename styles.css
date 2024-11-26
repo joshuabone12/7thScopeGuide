@@ -155,10 +155,9 @@ p {
 
 /* Modal Content */
 .modal-content img {
-    width: 80vw; /* Set consistent width for all images */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 600px; /* Maximum width to ensure consistent size */
-    max-height: 90vh; /* Limit the height to fit within the viewport */
-    object-fit: contain; /* Ensures proper scaling */
+    width: 600px;
+    max-width: 100%;
+    cursor: crosshair;
+    height: auto;
 }
 
