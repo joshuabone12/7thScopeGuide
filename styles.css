@@ -88,7 +88,7 @@ p {
 .thumbnail-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2px; /* Decrease the gap to bring items closer together */
+    gap: 20px; /* Decrease the gap to bring items closer together */
     margin-top: 20px;
     justify-content: center;
 }
