@@ -26,12 +26,12 @@ body::before {
     z-index: -1;
 }
 
-/* Combat Stats Text */
+/* Combat Stats Styling */
 .combat-stats {
-    font-size: 0.9em;
-    line-height: 1.2em;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Handle excess text gracefully */
+    font-size: 0.85em; /* Adjusted font size for readability */
+    line-height: 1.4em; /* Improved line spacing for better readability */
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 /* Guides Container */
@@ -87,7 +87,7 @@ p {
 /* Thumbnail Container */
 .thumbnail-container {
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 20px;
     justify-content: center;
@@ -98,9 +98,15 @@ p {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 200px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; /* Allows the height to be dynamic */
+    min-height: 300px; /* Sets a minimum height for uniformity */
+    max-height: 500px; /* Sets a maximum height to avoid excessive empty space */
 }
+
 
 .thumbnail-item h2 {
     font-size: 1.2em;
@@ -114,11 +120,12 @@ p {
 
 .thumbnail {
     width: 100%;
-    height: 200px; /* Set a fixed height for images */
+    height: auto;
     border-radius: 4px;
-    object-fit: cover; /* Ensures the image fills the height without stretching */
+    object-fit: contain;
     cursor: pointer;
     transition: transform 0.2s;
+    margin-bottom: 10px; /* Adds consistent spacing under the image */
 }
 
 .thumbnail:hover {
