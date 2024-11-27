@@ -87,21 +87,19 @@ p {
 /* Thumbnail Container */
 .thumbnail-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusts to fit more boxes tightly */
-    gap: 10px; /* Smaller gap for tight spacing */
+    grid-template-columns: repeat(5, auto);
+    gap: 15px;
     margin-top: 20px;
     justify-content: center;
 }
 
 .thumbnail-item {
     background-color: #222;
-    padding: 5px; /* Reduce padding for a smaller box appearance */
-    border-radius: 4px; /* Slightly smaller rounding for tighter design */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for compact look */
-    width: auto; /* Allow items to adjust naturally */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 200px;
     text-align: center;
-    height: auto; /* Maintain proportional height */
-    max-width: 150px; /* Limit width to ensure smaller boxes */
 }
 
 .thumbnail-item h2 {
