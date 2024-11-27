@@ -86,11 +86,11 @@ p {
 
 /* Thumbnail Container */
 .thumbnail-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Adjust the gap between items */
-    justify-content: center; /* Center-align the items */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Ensure equal spacing and size */
+    gap: 20px; /* Adjust the gap between the boxes */
     margin-top: 20px;
+    justify-content: center;
 }
 
 .thumbnail-item {
@@ -98,13 +98,9 @@ p {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: calc(20% - 20px); /* Set flexible width with consistent gaps */
+    width: 100%; /* Allow items to flexibly adjust within the grid */
     text-align: center;
-    height: 500px; /* Fixed height to match the design */
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: auto; /* Maintain proportional height for content */
 }
 
 .thumbnail-item h2 {
