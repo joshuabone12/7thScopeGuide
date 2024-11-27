@@ -79,24 +79,23 @@ p {
 /* Thumbnail Container */
 .thumbnail-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Set a fixed number of columns to 5 per row */
-    gap: 15px; /* Maintain a reasonable gap between items */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px; /* Decrease the gap to bring items closer together */
     margin-top: 20px;
-    justify-items: center;
+    justify-content: center;
 }
-
 
 .thumbnail-item {
     background-color: #222;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 200px; /* Keep width fixed to align items properly */
+    width: auto; /* Allow the width to be flexible */
     text-align: center;
-    height: 420px;
+    height: 420px; /* Set a fixed height to ensure all items are the same size */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Space out title, image, and other text */
 }
 
 .thumbnail-item h2 {
