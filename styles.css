@@ -78,11 +78,11 @@ p {
 
 /* Thumbnail Container */
 .thumbnail-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    margin-top: 20px;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .thumbnail-item {
@@ -90,9 +90,9 @@ p {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 250px;
+    width: 240px;
     text-align: center;
-    height: 500px; /* Set a fixed height to ensure all items are the same size */
+    height: 450px; /* Set a fixed height to ensure consistency */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -112,7 +112,7 @@ p {
     width: 100%;
     height: 200px; /* Set a fixed height for images */
     border-radius: 4px;
-    object-fit: contain;
+    object-fit: cover; /* Ensures the image fills the height without stretching */
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -153,5 +153,5 @@ p {
     width: 700px;
     max-width: 100%;
     cursor: crosshair;
-    height: 500px; /* Ensure proper height scaling */
+    height: auto; /* Ensure proper height scaling */
 }
