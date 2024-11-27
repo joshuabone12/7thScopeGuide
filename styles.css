@@ -79,11 +79,12 @@ p {
 /* Thumbnail Container */
 .thumbnail-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Create a flexible grid that adjusts to screen size */
-    gap: 5px; /* Reduce the gap between items to bring them closer together */
+    grid-template-columns: repeat(5, 1fr); /* Set a fixed number of columns to 5 per row */
+    gap: 15px; /* Maintain a reasonable gap between items */
     margin-top: 20px;
     justify-items: center;
 }
+
 
 .thumbnail-item {
     background-color: #222;
