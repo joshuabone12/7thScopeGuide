@@ -86,11 +86,11 @@ p {
 
 /* Thumbnail Container */
 .thumbnail-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px; /* Decrease the gap to bring items closer together */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between items */
+    justify-content: center; /* Center-align the items */
     margin-top: 20px;
-    justify-content: center;
 }
 
 .thumbnail-item {
@@ -98,14 +98,13 @@ p {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: auto; /* Allow the width to be flexible */
+    width: calc(20% - 20px); /* Set flexible width with consistent gaps */
     text-align: center;
-    height: 500px; /* Increased height to accommodate more text */
-    max-height: 500px; /* Ensuring no overflow beyond this limit */
-    overflow-y: auto; /* Add vertical scroll if content exceeds height */
+    height: 500px; /* Fixed height to match the design */
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Space out title, image, and other text */
+    justify-content: space-between;
 }
 
 .thumbnail-item h2 {
@@ -143,6 +142,19 @@ p {
     pointer-events: none;
     background-repeat: no-repeat;
     z-index: 200;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .thumbnail-item {
+        width: calc(45% - 20px); /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .thumbnail-item {
+        width: calc(90% - 20px); /* Adjust width for mobile screens */
+    }
 }
 
 /* Modal */
