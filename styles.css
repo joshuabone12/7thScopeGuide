@@ -26,6 +26,14 @@ body::before {
     z-index: -1;
 }
 
+/* Combat Stats Text */
+.combat-stats {
+    font-size: 0.9em;
+    line-height: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Handle excess text gracefully */
+}
+
 /* Guides Container */
 .guides-container {
     position: relative;
@@ -92,7 +100,9 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     width: auto; /* Allow the width to be flexible */
     text-align: center;
-    height: 420px; /* Set a fixed height to ensure all items are the same size */
+    height: 500px; /* Increased height to accommodate more text */
+    max-height: 500px; /* Ensuring no overflow beyond this limit */
+    overflow-y: auto; /* Add vertical scroll if content exceeds height */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space out title, image, and other text */
