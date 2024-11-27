@@ -92,7 +92,7 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     width: 220px;
     text-align: center;
-    height: 460px; /* Set a fixed height to ensure all items are the same size */
+    height: 450px; /* Set a fixed height to ensure all items are the same size */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space out title, image, and other text */
@@ -108,10 +108,9 @@ p {
     margin: 5px 0;
 }
 
-/* Thumbnail Images */
 .thumbnail {
     width: 100%;
-    height: 250px; /* Set fixed height to ensure all images are the same size */
+    height: auto;
     border-radius: 4px;
     object-fit: contain; /* Keep the image contained without stretching */
     cursor: pointer;
@@ -151,52 +150,19 @@ p {
 }
 
 .modal-content img {
-    width: 600px;
+    width: 800px;  /* Increased width for better visibility */
+    height: 700px;  /* Increased height for better visibility */
     max-width: 100%;
-    height: 600px; /* Set a fixed height for the modal images */
+    max-height: 100%;
     cursor: crosshair;
+    object-fit: contain;
 }
 
-/* Combat Stats */
-.combat-stats {
-    font-size: 0.85em;
-    line-height: 1.4em;
-    margin-top: 10px;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-    .thumbnail-container {
-        grid-template-columns: repeat(4, auto);
-    }
-}
-
-@media (max-width: 900px) {
-    .thumbnail-container {
-        grid-template-columns: repeat(3, auto);
-    }
-
-    .thumbnail-item {
-        width: 180px;
-        height: 400px;
-    }
-
-    .thumbnail {
-        height: 200px;
-    }
-}
-
-@media (max-width: 600px) {
-    .thumbnail-container {
-        grid-template-columns: repeat(2, auto);
-    }
-
-    .thumbnail-item {
-        width: 160px;
-        height: 350px;
-    }
-
-    .thumbnail {
-        height: 180px;
-    }
+/* Larger Modal Size for MBT and IFV Images */
+.modal-content.mbt-ifv img {
+    width: 1000px; /* Wider size for MBT and IFV scopes */
+    height: 800px; /* Taller size for MBT and IFV scopes */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
