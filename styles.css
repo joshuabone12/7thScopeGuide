@@ -91,8 +91,8 @@ p {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     width: 220px;
+    height: 500px; /* Set a fixed height to ensure all items are the same size */
     text-align: center;
-    height: 450px; /* Set a fixed height to ensure all items are the same size */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space out title, image, and other text */
@@ -101,15 +101,21 @@ p {
 .thumbnail-item h2 {
     font-size: 1.2em;
     margin: 10px 0 5px;
+    min-height: 40px; /* Ensure uniform height for titles */
 }
 
-.thumbnail-item p {
-    font-size: 0.9em;
-    margin: 5px 0;
+.thumbnail-item .thumbnail-image-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
 }
 
 .thumbnail {
-    width: 100%;
+    max-width: 100%;
+    max-height: 200px;
+    width: auto;
     height: auto;
     border-radius: 4px;
     object-fit: contain; /* Keep the image contained without stretching */
@@ -119,6 +125,16 @@ p {
 
 .thumbnail:hover {
     transform: scale(1.05);
+}
+
+.thumbnail-item p {
+    font-size: 0.9em;
+    margin: 5px 0;
+    min-height: 60px; /* Ensure a consistent height for the description text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
 }
 
 /* Magnifying Box */
