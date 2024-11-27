@@ -15,14 +15,6 @@ function openModal(scopeId) {
 
     // Make sure the modal is visible
     const modal = document.getElementById('modal');
-
-    // Check if the clicked scope belongs to MBT or IFV guides
-    if (scopeId.includes('tankscope') || scopeId.includes('ifvscope')) {
-        modal.querySelector('.modal-content').classList.add('mbt-ifv');
-    } else {
-        modal.querySelector('.modal-content').classList.remove('mbt-ifv');
-    }
-
     modal.style.display = 'flex';
 
     // Attach event listeners for the magnifier effect
@@ -85,6 +77,9 @@ function hideMagnifier() {
 
 // Ensure click events are working as expected
 document.addEventListener('DOMContentLoaded', function () {
+    // Show the "Scoped Rifles Guide" by default
+    showTab('scoped-rifles-guide');
+
     // Add event listeners to each thumbnail image
     const thumbnails = document.querySelectorAll('.thumbnail');
     thumbnails.forEach(thumbnail => {
