@@ -80,7 +80,7 @@ p {
 .thumbnail-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* Make 5 items per row */
-    gap: 20px;
+    gap: 10px; /* Reduce gap between items to make them closer */
     margin-top: 20px;
     justify-items: center;
 }
@@ -90,9 +90,9 @@ p {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 240px;
+    width: 220px;
     text-align: center;
-    height: 450px; /* Set a fixed height to ensure consistency */
+    height: 420px; /* Set a fixed height to ensure consistency */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
