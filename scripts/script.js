@@ -15,6 +15,14 @@ function openModal(scopeId) {
 
     // Make sure the modal is visible
     const modal = document.getElementById('modal');
+
+    // Check if the clicked scope belongs to MBT or IFV guides
+    if (scopeId.includes('tankscope') || scopeId.includes('ifvscope')) {
+        modal.querySelector('.modal-content').classList.add('mbt-ifv');
+    } else {
+        modal.querySelector('.modal-content').classList.remove('mbt-ifv');
+    }
+
     modal.style.display = 'flex';
 
     // Attach event listeners for the magnifier effect
