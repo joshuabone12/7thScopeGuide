@@ -79,8 +79,8 @@ p {
 /* Thumbnail Container */
 .thumbnail-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Make 5 items per row */
-    gap: 10px; /* Reduce gap between items to make them closer */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Create a flexible grid that adjusts to screen size */
+    gap: 5px; /* Reduce the gap between items to bring them closer together */
     margin-top: 20px;
     justify-items: center;
 }
@@ -90,9 +90,9 @@ p {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 220px;
+    width: 200px; /* Keep width fixed to align items properly */
     text-align: center;
-    height: 420px; /* Set a fixed height to ensure consistency */
+    height: 420px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
